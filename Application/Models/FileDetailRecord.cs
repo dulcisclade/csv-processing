@@ -2,5 +2,6 @@ namespace Application.Models;
 
 public class FileDetailRecord
 {
-    public RecordType RecordType { get; set; }
+    public RecordType Record { get; set; }
+    public DetailInfoType DetailInfo { get; set; }
 }

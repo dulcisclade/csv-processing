@@ -10,7 +10,7 @@ public interface ICsvReaderFactory
 
 public class CsvReaderFactory : ICsvReaderFactory
 {
-    private static readonly Dictionary<string, IRecordReader> _readers = new()
+    private static readonly Dictionary<string, IRecordReader> Readers = new()
     {
         {RecordConstants.HeaderRecord, new HeaderReader()},
         {RecordConstants.DetailRecord, new DetailReader()},
@@ -20,7 +20,7 @@ public class CsvReaderFactory : ICsvReaderFactory
 
     public IRecordReader Create(string field)
     {
-        if (_readers.TryGetValue(field, out var value))
+        if (Readers.TryGetValue(field, out var value))
         {
             return value;
         }

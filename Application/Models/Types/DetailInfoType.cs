@@ -1,14 +1,14 @@
 namespace Application.Models;
 
-public class RecordType : IRecord<string>
+public class DetailInfoType : IRecord<string>
 {
-    public RecordType(string data)
+    public DetailInfoType(string data)
     {
         var validator = ValidationBuilder.Create().Required().Build();
 
         if (!validator.Invoke(data))
         {
-            throw new ValidationException($"{nameof(RecordType)} is invalid");
+            throw new ValidationException($"{nameof(DetailInfoType)} is invalid");
         }
 
         Value = data;

@@ -3,10 +3,11 @@ using CsvHelper.Configuration;
 
 namespace Application;
 
-public class FileDetailRecordMap : ClassMap<FileDetailRecord>
+public sealed class FileDetailRecordMap : ClassMap<FileDetailRecord>
 {
     public FileDetailRecordMap()
     {
-        Map(member => member.RecordType).Index(0).TypeConverter<RecordConvertor<RecordType>>();
+        Map(member => member.Record).Index(0).TypeConverter<RecordConvertor<RecordType>>();
+        Map(member => member.DetailInfo).Index(1).TypeConverter<RecordConvertor<DetailInfoType>>();
     }
 }

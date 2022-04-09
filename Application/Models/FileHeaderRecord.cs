@@ -2,5 +2,6 @@ namespace Application.Models;
 
 public class FileHeaderRecord
 {
-    public RecordType RecordType { get; set; }
+    public RecordType Record { get; set; }
+    public InformationCodeType InformationCode { get; set; }
 }
