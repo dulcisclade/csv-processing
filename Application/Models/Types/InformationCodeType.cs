@@ -1,10 +1,17 @@
 namespace Application.Models;
 
-public class InformationCodeType: IRecord<int>
+public class InformationCodeType : IRecord<int>
 {
-    public InformationCodeType(int data)
+    public InformationCodeType(string data)
     {
-        Value = data;
+        var validator = ValidationBuilder.Create().Required().Build();
+        if (!validator.Invoke(data))
+        {
+            throw new ValidationException($"{nameof(InformationCodeType)} is invalid");
+        }
+
+        Value = int.Parse(data);
     }
+
     public int Value { get; }
 }
